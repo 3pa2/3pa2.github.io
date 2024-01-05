@@ -1,19 +1,31 @@
 <style>
-.droplet {
-    color: orangered;
-    border-radius: 5px 50%;
-    height: 100px;
-    margin: 150px auto;
-    transform-origin: left top;
-    transition: transform 8s;
-    width: 100px;
-  
-    &:hover {
-      transform: rotate(500deg);
+  @keyframes elejegira {
+    0% {
+      transform: rotate(0deg);
+    }
+     12% {
+      transform: rotate(128deg);
+    }
+    36% {
+      transform: rotate(256deg)
+    }
+    72% {
+      transform: rotate(505deg)
+    } 
+    to {
+      transform: rotate(715deg);
     }
   }
+  .elejegira {
+    color: orangered;
+    width: 20vw;
+    font-size: 97;
+    animation: elejegira 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+  }
 </style>
-<div class="droplet">666</div>
+<div class="elejegira">666</div>
 <!--<video loop autoplay muted>
     <source src="666.mp4"/>
 </video>-->
