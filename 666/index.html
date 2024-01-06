@@ -82,7 +82,7 @@
 <div class="playa"></div>
 <script>
   codificacion666 = false
-  setTimeout( () => document.getElementById('meckemau').hidden = false, 9999)
+  setTimeout( () => {document.getElementById('meckemau').hidden = false; codificacion666 = true}, 9999)
   muerte = (jugamos = true) => {
     if (!jugamos) codificacion666 = true
     if (codificacion666) jugamos = true
