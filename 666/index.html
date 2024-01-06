@@ -76,16 +76,16 @@
 </script>
 <div class="elejegira">666</div>
 <img class="meckemau" id="meckemau" src="meckemau.png" hidden onclick="muerte(false)" ontouchstart="muerte(false)"/>
-<video loop autoplay muted playsinline ontouchstart="muerte();document.getElementById('meckemau').hidden=true" onclick="muerte();document.getElementById('meckemau').hidden=true" id="cima">
+<video loop autoplay muted playsinline ontouchstart="muerte();" onclick="muerte();" id="cima">
     <source src="666.mp4"/>
 </video>
 <div class="playa"></div>
 <script>
   codificacion666 = false
   setTimeout( () => {document.getElementById('meckemau').hidden = false; codificacion666 = true}, 9999)
-  muerte = (jugamos = true) => {
+  muerte = (jugamos = true) => {/*
     if (!jugamos) codificacion666 = true
-    if (codificacion666) jugamos = true
+    if (codificacion666) jugamos = true*/
   }
 </script>
 <script>
@@ -141,6 +141,39 @@ if (codificacion666 === false ) return
   listen = false
 });
 miniMouse.addEventListener("touchstart", (e) => {
+if (codificacion666 === false ) return
+  let iframe = document.createElement('iframe');
+  iframe.setAttribute('src', `https://www.youtube.com/embed/VUKoz5GZXwc?autoplay=1&rel=0&controls=0&showinfo=0&mute=1`);
+  iframe.setAttribute('frameborder', '0');
+  iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.setAttribute('width', '1280');
+  iframe.setAttribute('height', '620');
+
+  document.querySelector('.playa').appendChild(iframe);
+  if (!listen) iframe.setAttribute('src', `https://www.youtube.com/embed/VUKoz5GZXwc?autoplay=1&rel=0&controls=0&showinfo=0&mute=1`)
+  document.getElementById('joya').play()
+  document.getElementById('joya').hidden = false
+  listen = false
+});
+  crypyMouse=document.getElementById('sangre')
+crypyMouse.addEventListener("click", (e) => {
+if (codificacion666 === false ) return
+  let iframe = document.createElement('iframe');
+  iframe.setAttribute('src', `https://www.youtube.com/embed/VUKoz5GZXwc?autoplay=1&rel=0&controls=0&showinfo=0&mute=1`);
+  iframe.setAttribute('frameborder', '0');
+  iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.setAttribute('width', '1280');
+  iframe.setAttribute('height', '620');
+
+  document.querySelector('.playa').appendChild(iframe);
+  if (!listen) iframe.setAttribute('src', `https://www.youtube.com/embed/VUKoz5GZXwc?autoplay=1&rel=0&controls=0&showinfo=0&mute=1`)
+  document.getElementById('joya').play()
+  document.getElementById('joya').hidden = false
+  listen = false
+});
+crypyMouse.addEventListener("touchstart", (e) => {
 if (codificacion666 === false ) return
   let iframe = document.createElement('iframe');
   iframe.setAttribute('src', `https://www.youtube.com/embed/VUKoz5GZXwc?autoplay=1&rel=0&controls=0&showinfo=0&mute=1`);
