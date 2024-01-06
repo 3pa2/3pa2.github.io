@@ -76,7 +76,7 @@
 </script>
 <div class="elejegira">666</div>
 <img class="meckemau" id="meckemau" src="meckemau.png" hidden onclick="muerte(false)" ontouchstart="muerte(false)"/>
-<video loop autoplay muted ontouchstart="muerte();document.getElementById('meckemau').hidden=true" onclick="muerte();document.getElementById('meckemau').hidden=true" id="cima">
+<video loop autoplay muted playsinline ontouchstart="muerte();document.getElementById('meckemau').hidden=true" onclick="muerte();document.getElementById('meckemau').hidden=true" id="cima">
     <source src="666.mp4"/>
 </video>
 <div class="playa"></div>
@@ -103,6 +103,8 @@ if (codificacion666 === false ) return
 
   document.querySelector('.playa').appendChild(iframe);
   if (!listen) iframe.setAttribute('src', `https://www.youtube.com/embed/VUKoz5GZXwc?autoplay=1&rel=0&controls=0&showinfo=0&mute=1`)
+  document.getElementById('joya').play()
+  document.getElementById('joya').hidden = false
   listen = false
 });
 mickeyMouse.addEventListener("touchstart", (e) => {
@@ -117,6 +119,8 @@ if (codificacion666 === false ) return
 
   document.querySelector('.playa').appendChild(iframe);
   if (!listen) iframe.setAttribute('src', `https://www.youtube.com/embed/VUKoz5GZXwc?autoplay=1&rel=0&controls=0&showinfo=0&mute=1`)
+  document.getElementById('joya').play()
+  document.getElementById('joya').hidden = false
   listen = false
 });
   miniMouse=document.getElementById('cima')
@@ -132,6 +136,8 @@ if (codificacion666 === false ) return
 
   document.querySelector('.playa').appendChild(iframe);
   if (!listen) iframe.setAttribute('src', `https://www.youtube.com/embed/VUKoz5GZXwc?autoplay=1&rel=0&controls=0&showinfo=0&mute=1`)
+  document.getElementById('joya').play()
+  document.getElementById('joya').hidden = false
   listen = false
 });
 miniMouse.addEventListener("touchstart", (e) => {
@@ -146,6 +152,11 @@ if (codificacion666 === false ) return
 
   document.querySelector('.playa').appendChild(iframe);
   if (!listen) iframe.setAttribute('src', `https://www.youtube.com/embed/VUKoz5GZXwc?autoplay=1&rel=0&controls=0&showinfo=0&mute=1`)
+  document.getElementById('joya').play()
+  document.getElementById('joya').hidden = false
   listen = false
 });
 </script>
+<audio id="joya" hidden>
+  <source src="joya.mp3"/>
+</audio>
