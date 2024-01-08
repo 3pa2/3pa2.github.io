@@ -37,12 +37,16 @@
       la pecera es una movida donde vivo
     </div>
     <div>
-      <marquee scrolldelay="120" direction="down">la pecera es una movida donde vivo</marquee><br/>
+      <div id="tabajo">🕳️</div>
+      <script>
+          setInterval( () => document.getElementById('ca3n').innerHTML = Math.round(Math.random()*4208), 150)
+          setInterval( () => document.getElementById('tabajo').innerHTML="🕳️"+String.fromCodePoint(document.getElementById('ca3n').innerHTML), 150)
+      </script>
       <br/>
       <br/>
       <br/>
       <br/>
-      <marquee scrolldelay="120" direction="down">la pecera es una movida donde vivo
+      <marquee direction="down" id="ca3n" style="z-index:3;" >3</marquee>la pecera es una movida donde vivo
         <br/>
         <br/>
         <br/>
