@@ -1,0 +1,30 @@
+<meta charset="UTF-8" year="2023" memes="true">
+<div id="xd"></div>
+<span id="mii" onclick="xd()" ontouchstart="xd()">🔄</span>
+<script>
+xd = () => {
+let a = 'J'
+let i=9
+for (e=0;e<i;e++){
+    let codigo = Math.random()
+    if (codigo > 0.5) a+='a'
+    else a+='j'
+}
+document.getElementById('xd').innerHTML = a
+}
+xd()
+</script>
+<style>
+    body {
+        background-color: black;
+    }
+    #xd {
+        color:aquamarine;
+        font-family: 'Ravie';
+        font-size: 8vh;
+    }
+    #mii {
+        background-color:crimson;
+        font-size: 342;
+    }
+</style>
