@@ -1,0 +1,444 @@
+{
+  "version": "1.0",
+  "payload": {
+    "objects": [
+      {
+        "name": "imagen2",
+        "position": { "x": 11.45, "y": 1.15, "z": -8.5},
+        "rotation": { "x": 0.0, "y": -80.0,"z": 0.0 },
+        "scale": { "x": 1.2, "y": 2.0,"z": 1.2 },
+        "components": [
+
+          {
+            "type": "mp.planeRenderer",
+            "inputs": {
+              "transparent": false
+            }
+          },
+          {
+            "type": "mp.videoRenderer"
+          },
+          {
+            "type": "mp.videoStreamCapture",
+            "inputs": {
+              "deviceId": 0
+            }
+          },
+          {
+            "type": "mp.toggleState",
+            "inputs": {
+              "initialState": false
+            }
+          },
+
+          {
+            "type": "mp.planeRenderer",
+            "inputs": {
+              "transparent": true,
+              "opacity": 0.8
+            }
+          },
+          {
+            "type": "mp.canvasRenderer",
+            "inputs": {
+              "textureRes": {
+                "w": 1024,
+                "h": 1024
+              }
+            }
+          },
+          {
+            "type": "mp.canvasBorder",
+            "inputs": {
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "size": {
+                "h": 1024,
+                "w": 1024
+              },
+              "radius": 50
+            }
+          },
+
+          {
+            "type": "mp.planeRenderer",
+            "inputs": {
+              "transparent": true,
+              "opacity": 0.8,
+              "polygonOffset": true,
+              "polygonOffsetFactor": -2
+            }
+          },
+          {
+            "type": "mp.canvasRenderer",
+            "inputs": {
+              "textureRes": {
+                "w": 256,
+                "h": 256
+              }
+            }
+          },
+          {
+            "type": "mp.canvasText",
+            "inputs": {
+              "size": {
+                "h": 256,
+                "w": 256
+              },
+              "text": "IMAGEN 2",
+              "font": "normal bold 60px serif",
+              "position": { "x":10, "y": -80, "z": 2 },
+              "textWidth": 200
+            }
+          },
+          {
+            "type": "mp.canvasImage",
+            "inputs": {
+              "src": "bundle/images/logo-ECI.png",
+              "srcPosition": { "x":0, "y": 0, "z": 0 },
+              "srcSize": { "w": 128, "h": 128},
+              "destPosition": { "x":0, "y": 0, "z": 0 },
+              "destSize": { "w": 128, "h": 128}
+            }
+          }
+        ],
+        "bindings": [
+          [1, "src", 2, "stream"],
+          [0, "texture", 1, "texture"],
+          [2, "enabled", 3, "state"],
+          [0, "aspect", 2, "aspect"],
+          [5, "painter", 6, "painter"],
+          [4, "texture", 5, "texture"],
+          [4, "aspect", 2, "aspect"],
+          [8, "painter", 9, "painter"],
+          [7, "texture", 8, "texture"],
+          [7, "visible", 3, "negated"],
+          [7, "aspect", 2, "aspect"]
+        ],
+        "events": [
+          [3, "toggle", 0, "INTERACTION.CLICK"]
+        ]
+      },
+      {
+        "name": "webcam",
+        "position": { "x": 13.0, "y": 1.15, "z": -0.75},
+        "rotation": { "x": 0.0, "y": -80.0,"z": 0.0 },
+        "scale": { "x": 3.2, "y": 6.0,"z": 1.2 },
+        "components": [
+          {
+            "type": "mp.tuner",
+            "inputs": {
+              "urls": [
+                "https://video2archives.earthcam.com/archives/_definst_/MP4:permanent/14162/2019/07/22/1300.mp4/chunklist_w1401431259.m3u8",
+                "https://www.bloomberg.com/media-manifest/streams/us.m3u8"
+              ]
+            },
+            "events": {
+              "next": true
+            }
+          },
+          {
+            "type": "mp.hlsLoader"
+          },
+          {
+            "type": "mp.videoRenderer"
+          },
+          {
+            "type": "mp.planeRenderer",
+            "inputs": {
+              "transparent": false,
+              "localScale": { "x": 0.6, "y": 0.6, "z": 0.6 },
+              "localPosition": { "x": 0, "y": 0, "z": 0 }
+            }
+          },
+          {
+            "type": "mp.toggleState",
+            "inputs": {
+              "initialState": true
+            }
+          },
+
+          {
+            "type": "mp.planeRenderer",
+            "inputs": {
+              "transparent": true,
+              "opacity": 0.8,
+              "localScale": { "x": 0.6, "y": 0.6, "z": 0.6 }
+            }
+          },
+          {
+            "type": "mp.canvasRenderer",
+            "inputs": {
+              "textureRes": {
+                "w": 1024,
+                "h": 1024
+              }
+            }
+          },
+          {
+            "type": "mp.canvasBorder",
+            "inputs": {
+              "position": { "x": 0, "y": 0 },
+              "size": { "h": 1024, "w": 1024 },
+              "radius": 50
+            }
+          },
+
+          {
+            "type": "mp.planeRenderer",
+            "visible": true,
+            "inputs": {
+              "localScale": { "x": 0.6, "y": 0.6, "z": 0.6 },
+              "transparent": true,
+              "opacity": 0.8,
+              "polygonOffset": true,
+              "polygonOffsetFactor": -2
+            }
+          },
+          {
+            "type": "mp.canvasRenderer",
+            "visible": true,
+            "inputs": {
+              "textureRes": {
+                "w": 512,
+                "h": 512
+              }
+            }
+          },
+          {
+            "type": "mp.canvasText",
+            "visible": true,
+            "inputs": {
+              "size": {
+                "h": 512,
+                "w": 512
+              },
+              "text": "IMAGEN 1",
+              "font": "normal bold 40px sans-serif",
+              "position": { "x":160, "y": 210, "z": 0 },
+              "textWidth": 250
+            }
+          },
+
+          {
+            "type": "mp.planeRenderer",
+            "visible": true,
+            "inputs": {
+              "localScale": { "x": 0.08, "y": 0.08, "z": 1.0 },
+              "localPosition": { "x": 0.22, "y": -0.13, "z": 0.01 }
+            },
+            "events": {
+              "INTERACTION.CLICK": true
+            }
+          },
+          {
+            "type": "mp.canvasRenderer",
+            "visible": true,
+            "inputs": {
+              "textureRes": {
+                "w": 1028,
+                "h": 1028
+              }
+            }
+          },
+          {
+            "type": "mp.canvasImage",
+            "visible": true,
+            "inputs": {
+              "src": "bundle/images/logo-sol.png",
+              "srcPosition": { "x":0, "y": 0, "z": 0 },
+              "srcSize": { "w": 1080, "h": 1080},
+              "destPosition": { "x":0, "y": 0, "z": 0 },
+              "destSize": { "w": 1028, "h": 1028}
+            }
+          }
+        ],
+        "bindings": [
+          [1, "src", 0, "src"],
+          [2, "src", 1, "video"],
+          [3, "texture", 12, "texture"],
+          [1, "enabled", 4, "state"],
+          [3, "aspect", 1, "aspect"],
+
+          [6, "painter", 7, "painter"],
+          [5, "texture", 6, "texture"],
+          [5, "aspect", 1, "aspect"],
+
+          [9, "painter", 10, "painter"],
+          [8, "texture", 9, "texture"],
+          [8, "visible", 4, "negated"],
+
+          [12, "painter", 13, "painter"],
+          [11, "texture", 12, "texture"],
+          [11, "visible", 4, "state"]
+        ],
+        "events": [
+          [4, "toggle", 3, "INTERACTION.CLICK"],
+          [0, "next", 11, "INTERACTION.CLICK"],
+          [12, "repaint", 13, "paint.ready"]
+        ]
+      },
+      {
+        "name": "video",
+        "position": { "x": 12.5, "y": 1.15, "z": -4.5},
+        "rotation": { "x": 0, "y": -80.0,"z": 0.0 },
+        "scale": { "x": 3.2, "y": 6.0,"z": 1.2 },
+        "components": [
+          {
+            "type": "mp.tuner",
+            "inputs": {
+              "urls": [
+                "https://video2archives.earthcam.com/archives/_definst_/MP4:permanent/14162/2019/07/22/1300.mp4/chunklist_w1401431259.m3u8",
+                "https://www.bloomberg.com/media-manifest/streams/us.m3u8"
+              ]
+            },
+            "events": {
+              "next": true
+            }
+          },
+          {
+            "type": "mp.hlsLoader"
+          },
+          {
+            "type": "mp.videoRenderer"
+          },
+          {
+            "type": "mp.planeRenderer",
+            "inputs": {
+              "transparent": false,
+              "localScale": { "x": 0.6, "y": 0.6, "z": 0.6 },
+              "localPosition": { "x": 0, "y": 0, "z": 0 }
+            }
+          },
+          {
+            "type": "mp.toggleState",
+            "inputs": {
+              "initialState": true
+            }
+          },
+
+          {
+            "type": "mp.planeRenderer",
+            "inputs": {
+              "transparent": true,
+              "opacity": 0.8,
+              "localScale": { "x": 0.6, "y": 0.6, "z": 0.6 }
+            }
+          },
+          {
+            "type": "mp.canvasRenderer",
+            "inputs": {
+              "textureRes": {
+                "w": 1024,
+                "h": 1024
+              }
+            }
+          },
+          {
+            "type": "mp.canvasBorder",
+            "inputs": {
+              "position": { "x": 0, "y": 0 },
+              "size": { "h": 1024, "w": 1024 },
+              "radius": 50
+            }
+          },
+
+          {
+            "type": "mp.planeRenderer",
+            "visible": true,
+            "inputs": {
+              "localScale": { "x": 0.6, "y": 0.6, "z": 0.6 },
+              "transparent": true,
+              "opacity": 0.8,
+              "polygonOffset": true,
+              "polygonOffsetFactor": -2
+            }
+          },
+          {
+            "type": "mp.canvasRenderer",
+            "visible": true,
+            "inputs": {
+              "textureRes": {
+                "w": 512,
+                "h": 512
+              }
+            }
+          },
+          {
+            "type": "mp.canvasText",
+            "visible": true,
+            "inputs": {
+              "size": {
+                "h": 512,
+                "w": 512
+              },
+              "text": "IMAGEN 1",
+              "font": "normal bold 40px sans-serif",
+              "position": { "x":160, "y": 210, "z": 0 },
+              "textWidth": 250
+            }
+          },
+
+          {
+            "type": "mp.planeRenderer",
+            "visible": true,
+            "inputs": {
+              "localScale": { "x": 0.08, "y": 0.08, "z": 1.0 },
+              "localPosition": { "x": 0.22, "y": -0.13, "z": 0.01 }
+            },
+            "events": {
+              "INTERACTION.CLICK": true
+            }
+          },
+          {
+            "type": "mp.canvasRenderer",
+            "visible": true,
+            "inputs": {
+              "textureRes": {
+                "w": 1028,
+                "h": 1028
+              }
+            }
+          },
+          {
+            "type": "mp.canvasImage",
+            "visible": true,
+            "inputs": {
+              "src": "bundle/images/solid-red.png",
+              "srcPosition": { "x":0, "y": 0, "z": 0 },
+              "srcSize": { "w": 128, "h": 128},
+              "destPosition": { "x":0, "y": 0, "z": 0 },
+              "destSize": { "w": 1028, "h": 1028}
+            }
+          }
+        ],
+        "bindings": [
+          [1, "src", 0, "src"],
+          [2, "src", 1, "video"],
+          [3, "texture", 12, "texture"],
+          [1, "enabled", 4, "state"],
+          [3, "aspect", 1, "aspect"],
+
+          [6, "painter", 7, "painter"],
+          [5, "texture", 6, "texture"],
+          [5, "aspect", 1, "aspect"],
+
+          [9, "painter", 10, "painter"],
+          [8, "texture", 9, "texture"],
+          [8, "visible", 4, "negated"],
+
+          [12, "painter", 13, "painter"],
+          [11, "texture", 12, "texture"],
+          [11, "visible", 4, "state"]
+        ],
+        "events": [
+          [4, "toggle", 3, "INTERACTION.CLICK"],
+          [0, "next", 11, "INTERACTION.CLICK"],
+          [12, "repaint", 13, "paint.ready"]
+        ]
+      }
+    ]
+  }
+}
