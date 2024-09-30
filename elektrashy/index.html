@@ -36,10 +36,12 @@
             align-items: center;
             font-family: dejavu;
         }
+
         @font-face {
             font-family: 'dejavu';
-            src: url('dejavu.woff') format('woff');
+            src: url('dejavu.ttf') format('truetype');
         }
+
         .play-button {
             position: absolute;
             top: 50%;
@@ -48,20 +50,37 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-size: 50px;
-            font-family: sans-serif;
             cursor: pointer;
         }
+
         iframe {
-            width: 300px; /* Set fixed width */
-            height: 80px; /* Set fixed height */
-            border: none; /* Remove borders */
+            width: 300px;
+            height: 80px;
+            border: none;
+        }
+
+        .above1 {
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            width: 80%; /* Ensures 10% margin on both sides */
+            margin-top: 10%; /* Small margin from the top */
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .above1 img {
+            width: 100%; /* Image will take full width within the div */
+            height: auto;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="above1" id="above1"><img src="elektrashy1.png"/></div>
         <div class="dvd-logo" id="dvd"><img src="elektrashy.png" width="150px"/></div>
         <div class="play-button" id="play">
             <iframe style="border-radius:12px"
@@ -81,10 +100,8 @@
         let containerHeight = container.clientHeight;
 
         // Initial position and speed
-        // Set initial position to the center of the container
         let posX = (containerWidth / 2) - (dvdLogo.clientWidth / 2) - 50;
         let posY = (containerHeight / 2) - (dvdLogo.clientHeight / 2) +50;
-
 
         let velocityX = 1.5; // Horizontal speed
         let velocityY = 1.5; // Vertical speed
