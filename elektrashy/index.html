@@ -1,13 +1,91 @@
-<html>
-    <head>
-        <title>elektrashy</title>
-    </head>
-    <body>
-        <video controls>
-            <source src="dejavu.mp4" type="video/mp4" />
-            
-            <source src="/media/cc0-videos/flower.mp4" type="video/mp4" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVD Bouncing Effect</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
 
-            </video>            
-    </body>
+        /* The container where the DVD logo bounces */
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* DVD logo style */
+        .dvd-logo {
+            position: absolute;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: dejavu;
+        }
+        @font-face {
+            font-family: 'dejavu';
+            src: url('dejavu.woff') format('woff');
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dvd-logo" id="dvd"><img src="elektrashy.png" width="200px"/></div>
+        hola
+    </div>
+
+    <script>
+        // Select the DVD logo and get the container dimensions
+        const dvdLogo = document.getElementById('dvd');
+        const container = document.querySelector('.container');
+        let containerWidth = container.clientWidth;
+        let containerHeight = container.clientHeight;
+
+        // Initial position and speed
+        let posX = 200;
+        let posY = 100;
+        let velocityX = 1.5; // Horizontal speed
+        let velocityY = 1.5; // Vertical speed
+
+        // Function to move the DVD logo
+        function moveDVD() {
+            // Update position
+            posX += velocityX;
+            posY += velocityY;
+
+            // Check for boundary collisions
+            if (posX + dvdLogo.clientWidth >= containerWidth || posX <= 0) {
+                velocityX = -velocityX; // Reverse X direction
+            }
+            if (posY + dvdLogo.clientHeight >= containerHeight || posY <= 0) {
+                velocityY = -velocityY; // Reverse Y direction
+            }
+
+            // Apply the new position to the DVD logo
+            dvdLogo.style.transform = `translate(${posX}px, ${posY}px)`;
+
+            // Request animation frame for smooth motion
+            requestAnimationFrame(moveDVD);
+        }
+
+        // Start moving the DVD logo
+        moveDVD();
+
+        // Handle window resize to update container dimensions
+        window.addEventListener('resize', () => {
+            containerWidth = container.clientWidth;
+            containerHeight = container.clientHeight;
+        });
+    </script>
+</body>
 </html>
