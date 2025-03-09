@@ -1,0 +1,89 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>hydra inside a webpage</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet
+    <link rel="stylesheet" href="/style.css" /> -->
+    <style>/* CSS files add styling rules to your content */
+
+    body, html {
+      font-family: helvetica, arial, sans-serif;
+      margin: 10px;
+      background-color: #000
+    }
+
+    h1 {
+      font-style: italic;
+      color: #ff0066;
+    }
+    a {
+      color: #ff0066;
+    }
+
+    button {
+      display: inline-block;
+      font-size: 16px;
+      padding: 10px;
+      margin: 10px;
+    }
+    </style>
+
+    <!-- import the latest version of hydra synth-->
+    <script src="https://unpkg.com/hydra-synth"></script>
+  </head>
+  <body>
+
+    <h1><a href="https://www.paypal.com/paypalme/yaizarpazo">fulltimebully</a></h1>
+    <canvas id="myCanvas" width="1024px" height="768px"></canvas>
+
+    <script>
+      // create a new hydra-synth instance
+      var hydra = new Hydra({
+        canvas: document.getElementById("myCanvas"),
+        detectAudio: false
+      })
+       setFunction({
+  name: 'saw',
+  type: 'src',
+  inputs: [
+    {
+      type: 'float',
+      name: 'frequency',
+      default: 60,
+    },
+{
+      type: 'float',
+      name: 'sync',
+      default: 0.1,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 0,
+    }
+  ],
+  glsl:
+`   vec2 st = _st;
+   float r = fract((st.x-offset/frequency+time*sync)*frequency);
+   float g = fract((st.x+time*sync)*frequency)*0.5 + 0.5;
+   float b = fract((st.x+offset/frequency+time*sync)*frequency);
+   return vec4(r, g, b, 1.0);`
+})
+saw(40,.001,1.4).modulate(osc(9,.04)).hue(()=>time/4).modulate(osc().rotate(),.04).diff(gradient().r().rotate(()=>time/4))
+  .sub(saw(11).rotate().luma().diff(osc(10))).out()
+
+
+    </script>
+       <video style="position:static;top:1px;width:1px;height:1px" id="vid" autoplay loop muted playsinline crossorigin>
+      <source src="https://cdn.glitch.global/8df667c3-e544-4cbb-8c16-f604238e8d2e/paper.mov?v=1682418858521">
+    </video>
+  </body>
+</html>
+
